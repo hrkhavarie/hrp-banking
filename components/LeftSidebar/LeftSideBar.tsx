@@ -1,13 +1,10 @@
 'use client'
-import React from 'react'
 import { LeftSideBarProps } from './LeftSideBar.types'
 import Link from 'next/link'
 import Image from 'next/image'
 import { sidebarLinks } from '@/constants'
 import { cn } from '@/lib/utils'
 import { usePathname } from 'next/navigation'
-
-
 
 const LeftSideBar:React.FC<LeftSideBarProps> = ({
     user
@@ -18,27 +15,20 @@ const LeftSideBar:React.FC<LeftSideBarProps> = ({
         <nav className="flex flex-col gap-4">
             <Link 
                 href="/"
-                className='mb-12 cursor-pointer  flex items-center gap-2'
-
-            >
+                className='mb-12 cursor-pointer flex items-center gap-2'>
                 <Image 
                     src="/assets/icons/logo.svg"
                     width={34}
                     height={34}
                     alt='Horizon logo'
                     className='size-[24px] max-xl:size-14'
-
-
                 />
-                <h1 className='sidebar-logo'>
-                    HRP Finance</h1>
+                <h1 className='sidebar-logo'>HRP Finance</h1>
             </Link>
 
             {sidebarLinks.map((link)=>{
-
                 const isActive = pathname === link.route || pathname.startsWith(`${link.route}/`)
-                return(
-                    
+                return(  
                     <Link
                         href={link.route}
                         key={link.label}
@@ -55,7 +45,7 @@ const LeftSideBar:React.FC<LeftSideBarProps> = ({
                        <p className={cn('sidebar-label',{'!text-white':isActive})}>
                         {link.label}
                        </p>
-                        </Link>
+                    </Link>
                 )
             })}
             USER
@@ -64,5 +54,4 @@ const LeftSideBar:React.FC<LeftSideBarProps> = ({
     </section>
   )
 }
-
 export default LeftSideBar

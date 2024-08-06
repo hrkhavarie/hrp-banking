@@ -156,9 +156,9 @@ declare interface HeaderBoxProps {
   user?: string;
 }
 
-declare interface MobileNavProps {
-  user: User;
-}
+// declare interface MobileNavProps {
+//   user: User;
+// }
 
 declare interface PageHeaderProps {
   topTitle: string;
